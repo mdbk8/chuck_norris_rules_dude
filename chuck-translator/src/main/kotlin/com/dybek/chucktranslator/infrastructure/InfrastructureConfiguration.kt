@@ -1,0 +1,6 @@
+package com.dybek.chucktranslator.infrastructure
+
+import org.springframework.context.annotation.Configuration
+
+@Configuration
+class InfrastructureConfiguration
