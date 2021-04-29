@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ChuckProducerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="chuck_norris_rules_dude.chuck-producer.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.dybek.chuckproducer.ChuckProducerApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
