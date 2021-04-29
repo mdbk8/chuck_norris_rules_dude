@@ -4,3 +4,4 @@ include(
     "chuck-producer",
     "chuck-consumer"
 )
+include("chuck-translator")
