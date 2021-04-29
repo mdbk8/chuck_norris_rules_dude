@@ -1,21 +1,28 @@
-plugins {
-    java
-    kotlin("jvm") version "1.4.32"
+buildscript {
+
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+allprojects {
+    buildscript {
 
-repositories {
-    mavenCentral()
+    }
+
+    repositories {
+
+    }
 }
 
-dependencies {
-    implementation(kotlin("stdlib"))
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-}
+subprojects {
 
-tasks.getByName<Test>("test") {
-    useJUnitPlatform()
+    buildscript {
+
+    }
+
+    dependencies {
+
+    }
+
+    apply {
+        plugin("java")
+    }
 }
