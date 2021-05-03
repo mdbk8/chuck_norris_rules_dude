@@ -46,6 +46,7 @@ class ArchitectureTest {
                 "org.slf4j",
                 "kotlin..",
                 "org.jetbrains.annotations..",
+                "com.github.javafaker..",
                 "$DOMAIN_PACKAGE.."
             )
 

@@ -12,7 +12,13 @@ class ChuckProducerTest {
     fun `publishes Chuck instance`() {
         val chuckPublisher = mock<ChuckPublisher>()
         val chuckGenerator = mock<ChuckGenerator>()
-        val generatedChuck = Chuck()
+        val generatedChuck = Chuck(
+            fact = "fact",
+            beer = "beer",
+            fruit = "fruit",
+            city = "city",
+            country = "country"
+        )
         given(chuckGenerator.generate()).willReturn(generatedChuck)
 
         val underTest = ChuckProducer(chuckGenerator, chuckPublisher)
