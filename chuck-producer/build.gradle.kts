@@ -27,6 +27,7 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 
     testImplementation("com.tngtech.archunit:archunit:0.18.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:3.1.0")
 }
 
 sourceSets {
