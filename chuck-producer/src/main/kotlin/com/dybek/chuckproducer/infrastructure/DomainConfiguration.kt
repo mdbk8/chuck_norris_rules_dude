@@ -1,4 +1,4 @@
-package com.dybek.chuckproducer.domain
+package com.dybek.chuckproducer.infrastructure
 
 import org.springframework.context.annotation.Configuration
 
