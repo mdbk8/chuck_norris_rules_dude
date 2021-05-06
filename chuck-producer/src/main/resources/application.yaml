@@ -1,0 +1,11 @@
+spring:
+  kafka:
+    properties:
+      bootstrap.servers: localhost:29092
+    producer:
+      acks: all
+
+topic:
+  name: chuck
+  replicationFactor: 1
+  numOfPartitions: 1

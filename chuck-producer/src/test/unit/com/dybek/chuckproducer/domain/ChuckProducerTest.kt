@@ -13,6 +13,7 @@ class ChuckProducerTest {
         val chuckPublisher = mock<ChuckPublisher>()
         val chuckGenerator = mock<ChuckGenerator>()
         val generatedChuck = Chuck(
+            id = 3.toString(),
             fact = "fact",
             beer = "beer",
             fruit = "fruit",

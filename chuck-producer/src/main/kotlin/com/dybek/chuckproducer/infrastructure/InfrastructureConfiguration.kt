@@ -1,13 +1,11 @@
 package com.dybek.chuckproducer.infrastructure
 
-import com.dybek.chuckproducer.domain.ChuckPublisher
-import com.dybek.chuckproducer.infrastructure.kafka.KafkaChuckPublisher
-import org.springframework.context.annotation.Bean
+import com.dybek.chuckproducer.infrastructure.kafka.ChuckPublisherConfiguration
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Import
 
 @Configuration
-class InfrastructureConfiguration {
-
-    @Bean
-    fun chuckPublisher(): ChuckPublisher = KafkaChuckPublisher()
-}
+@Import(
+    ChuckPublisherConfiguration::class
+)
+class InfrastructureConfiguration

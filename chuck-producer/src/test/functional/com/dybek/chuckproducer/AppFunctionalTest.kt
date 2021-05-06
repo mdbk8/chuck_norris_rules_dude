@@ -6,9 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.*
 import org.springframework.context.ApplicationContext
+import org.springframework.kafka.test.context.EmbeddedKafka
 
 @SpringBootTest(
-    webEnvironment = RANDOM_PORT
+    webEnvironment = RANDOM_PORT,
+    properties = [
+        "spring.kafka.properties.bootstrap.servers=\${spring.embedded.kafka.brokers}"
+    ]
+)
+@EmbeddedKafka(
+    topics = ["\${topic.name}"],
+    partitions = 1
 )
 class AppFunctionalTest {
 
