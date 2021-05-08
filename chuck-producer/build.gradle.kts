@@ -32,6 +32,9 @@ dependencies {
     testImplementation("com.tngtech.archunit:archunit:0.18.0")
     testImplementation("org.mockito.kotlin:mockito-kotlin:3.1.0")
     testImplementation("org.awaitility:awaitility:4.0.3")
+    testImplementation("io.rest-assured:rest-assured:4.2.0")
+    testImplementation("io.rest-assured:json-path:4.2.0")
+    testImplementation("io.rest-assured:xml-path:4.2.0")
 }
 
 sourceSets {
