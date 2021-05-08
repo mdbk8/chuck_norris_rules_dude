@@ -1,4 +1,4 @@
-package com.dybek.chuckproducer
+package com.dybek.chuckproducer.kafka
 
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.test.context.TestConfiguration

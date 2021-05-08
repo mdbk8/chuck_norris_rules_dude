@@ -1,4 +1,4 @@
-package com.dybek.chuckproducer
+package com.dybek.chuckproducer.kafka
 
 import com.dybek.chuckproducer.domain.Chuck
 import org.assertj.core.api.Assertions.assertThat

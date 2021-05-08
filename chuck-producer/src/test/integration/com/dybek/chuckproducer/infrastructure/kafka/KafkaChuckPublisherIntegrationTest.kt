@@ -1,9 +1,10 @@
-package com.dybek.chuckproducer
+package com.dybek.chuckproducer.infrastructure.kafka
 
 import com.dybek.chuckproducer.domain.Chuck
 import com.dybek.chuckproducer.domain.ChuckPublisher
 import com.dybek.chuckproducer.infrastructure.kafka.ChuckPublisherConfiguration
-import org.assertj.core.api.Assertions
+import com.dybek.chuckproducer.kafka.KafkaConsumerTestHelper
+import com.dybek.chuckproducer.kafka.KafkaTestHelperConfig
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -27,7 +28,7 @@ import org.springframework.test.annotation.DirtiesContext
     classes = [ChuckPublisherConfiguration::class, KafkaTestHelperConfig::class]
 )
 @DirtiesContext
-class KafkaChuckProducerIntegrationTest {
+class KafkaChuckPublisherIntegrationTest {
 
     @Autowired
     private lateinit var chuckPublisher: ChuckPublisher

@@ -1,8 +1,9 @@
-package com.dybek.chuckproducer.interfaces
+package com.dybek.chuckproducer.interfaces.web
 
 import com.dybek.chuckproducer.domain.ChuckProducer
 import com.dybek.chuckproducer.domain.MockChuckProducerTestConfig
-import com.dybek.chuckproducer.interfaces.web.WebConfiguration
+import com.dybek.chuckproducer.interfaces.RestHelperTestConfig
+import com.dybek.chuckproducer.interfaces.RestRequestSender
 import org.junit.jupiter.api.Test
 import org.mockito.kotlin.verify
 import org.springframework.beans.factory.annotation.Autowired
