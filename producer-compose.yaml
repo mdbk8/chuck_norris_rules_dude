@@ -1,0 +1,22 @@
+version: '2.1'
+
+services:
+  zookeeper:
+    extends:
+      file: dependencies-dev.yaml
+      service: zookeeper
+
+  kafka:
+    extends:
+      file: dependencies-dev.yaml
+      service: kafka
+    depends_on:
+      - zookeeper
+
+  portainer:
+    extends:
+      file: dependencies-dev.yaml
+      service: portainer
+
+volumes:
+  portainer_data:

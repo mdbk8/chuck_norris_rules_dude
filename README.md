@@ -8,22 +8,23 @@ This README would normally document whatever steps are necessary to get your app
 * Version
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
-### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+## How to run the application
 
-### Contribution guidelines ###
+To run application you can use saved run configs in `run-configs` directory.
+It needs Kafka to be up and running. To do so invoke `docker compose -f producer-compose.yaml up -d`.
+It will run Zookeeper, Kafka broker and Portainer in the background.
 
-* Writing tests
-* Code review
-* Other guidelines
+To stop these containers run `docker compose -f producer-compose.yaml stop`.
 
-### Who do I talk to? ###
+To stop and remove these containers run `docker compose -f producer-compose.yaml down`.
 
-* Repo owner or admin
-* Other community or team contact
+### Portainer
+
+In `dependencies-dev.yaml` file there is Portainer defined which helps to manage running containers on local machine.
+You can access it by navigating to [localhost](http://localhost:9000).
+
+### Other useful commands
+
+- `docker compose -f producer-compose.yaml logs -f zookeeper` - to see zookeeper logs
+- `docker compose -f producer-compose.yaml logs -f kafka` - to see kafka logs
