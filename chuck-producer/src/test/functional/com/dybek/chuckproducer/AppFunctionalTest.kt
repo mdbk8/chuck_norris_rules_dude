@@ -15,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
 import org.springframework.context.ApplicationContext
 import org.springframework.kafka.test.context.EmbeddedKafka
+import org.springframework.test.annotation.DirtiesContext
 
 @SpringBootTest(
     webEnvironment = RANDOM_PORT,
@@ -32,6 +33,7 @@ import org.springframework.kafka.test.context.EmbeddedKafka
     topics = ["\${topic.name}"],
     partitions = 1
 )
+@DirtiesContext
 class AppFunctionalTest {
 
     @Autowired private lateinit var context: ApplicationContext

@@ -9,6 +9,7 @@ import org.mockito.kotlin.verify
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment
+import org.springframework.test.annotation.DirtiesContext
 
 @SpringBootTest(
     webEnvironment = WebEnvironment.RANDOM_PORT,
@@ -18,6 +19,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment
         RestHelperTestConfig::class
     ]
 )
+@DirtiesContext
 class ChuckControllerIntegrationTest {
 
     @Autowired

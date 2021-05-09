@@ -36,3 +36,18 @@ You can access it by navigating to [localhost](http://localhost:9000).
 
 When running application inside Docker, you can attach remote debugger by running `Docker_debug` run config from 
 `run-configs` dir.
+
+## Mutation testing
+
+[Pitest](https://pitest.org/) is configured in each module.
+You can run it by invoking appropriate run config stored in `run-configs` dir.
+It runs mutation for all classes.
+
+To test only newly added/modified files you have to change `pitest` plugin config:
+- comment out existing list entry for whole project package
+- add one or multiple classes entry in the form of `"*.ChuckController"`
+
+After such changes `./gradlew pitest` command will mutate only specified classes but run all tests.
+
+To also narrow down tests that will be run, do the same changes but for `targetClasses` entry in `pitest` plugin 
+config.

@@ -5,9 +5,11 @@ plugins {
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("jvm") version "1.4.32"
     kotlin("plugin.spring") version "1.4.32"
+
+    id("info.solidsoft.pitest") version "1.6.0"
 }
 
-group = "com.dybek"
+group = "com.dybek.chuckproducer"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
@@ -59,4 +61,21 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+pitest {
+    //adds dependency to org.pitest:pitest-junit5-plugin and sets "testPlugin" to "junit5"
+    junit5PluginVersion.set("0.14")
+    timestampedReports.set(false)
+
+    targetClasses.set(listOf(
+       "com.dybek.chuckproducer.*"
+    ))
+    targetTests.set(listOf(
+       "com.dybek.chuckproducer.*"
+    ))
+
+    avoidCallsTo.set(listOf(
+        "kotlin.jvm.internal"
+    ))
 }
