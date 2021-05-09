@@ -12,12 +12,15 @@ This README would normally document whatever steps are necessary to get your app
 ## How to run the application
 
 To run application you can use saved run configs in `run-configs` directory.
-It needs Kafka to be up and running. To do so invoke `docker compose -f producer-compose.yaml up -d`.
+It needs Kafka to be up and running. To do so invoke `docker compose -f chuck-producer-dependencies-compose.yaml up -d`.
 It will run Zookeeper, Kafka broker and Portainer in the background.
 
-To stop these containers run `docker compose -f producer-compose.yaml stop`.
+To stop these containers run `docker compose -f chuck-producer-dependencies-compose.yaml stop`.
 
-To stop and remove these containers run `docker compose -f producer-compose.yaml down`.
+To stop and remove these containers run `docker compose -f chuck-producer-dependencies-compose.yaml down`.
+
+It's also possible to run the application together with Zookeeper and Kafka in Docker.
+To do so run `chuck-producer-compose.yaml` file the same way as described above.
 
 ### Portainer
 
@@ -26,5 +29,10 @@ You can access it by navigating to [localhost](http://localhost:9000).
 
 ### Other useful commands
 
-- `docker compose -f producer-compose.yaml logs -f zookeeper` - to see zookeeper logs
-- `docker compose -f producer-compose.yaml logs -f kafka` - to see kafka logs
+- `docker compose -f chuck-producer-dependencies-compose.yaml logs -f zookeeper` - to see zookeeper logs
+- `docker compose -f chuck-producer-dependencies-compose.yaml logs -f kafka` - to see kafka logs
+
+### Remote debug
+
+When running application inside Docker, you can attach remote debugger by running `Docker_debug` run config from 
+`run-configs` dir.
