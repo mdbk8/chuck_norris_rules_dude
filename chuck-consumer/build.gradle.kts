@@ -25,6 +25,7 @@ dependencies {
 //    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.springframework.kafka:spring-kafka")
 
+    testImplementation("org.mockito.kotlin:mockito-kotlin:3.1.0")
     testImplementation("com.tngtech.archunit:archunit:0.18.0")
     testImplementation("org.assertj:assertj-core:3.11.1")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.1")
