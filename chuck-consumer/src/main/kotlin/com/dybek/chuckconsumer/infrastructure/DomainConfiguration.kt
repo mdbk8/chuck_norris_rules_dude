@@ -1,4 +1,4 @@
-package com.dybek.chuckconsumer.domain
+package com.dybek.chuckconsumer.infrastructure
 
 import org.springframework.context.annotation.Configuration
 
