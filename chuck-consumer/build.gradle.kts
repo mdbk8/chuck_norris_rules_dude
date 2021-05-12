@@ -25,9 +25,12 @@ dependencies {
 //    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.springframework.kafka:spring-kafka")
 
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.kafka:spring-kafka-test")
     testImplementation("org.mockito.kotlin:mockito-kotlin:3.1.0")
     testImplementation("com.tngtech.archunit:archunit:0.18.0")
     testImplementation("org.assertj:assertj-core:3.11.1")
+    testImplementation("org.awaitility:awaitility:4.0.3")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }
@@ -36,6 +39,7 @@ sourceSets {
     test {
         java {
             srcDirs(
+                "src/test/common",
                 "src/test/unit",
                 "src/test/integration",
                 "src/test/functional"
