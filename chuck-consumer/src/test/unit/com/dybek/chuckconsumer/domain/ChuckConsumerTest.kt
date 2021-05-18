@@ -16,7 +16,7 @@ class ChuckConsumerTest {
     @Test
     fun `translates fruit field of received Chuck instance`() {
         val chuck = Chuck(fruit = "orange")
-        whenever(translator.translate(any())).thenReturn("")
+        whenever(translator.translate(any())).thenReturn(mapOf(chuck.fruit to ""))
 
         underTest.consume(chuck)
 
@@ -27,7 +27,7 @@ class ChuckConsumerTest {
     fun `published Chuck with translated fruit field`() {
         val chuck = Chuck(fruit = "orange")
         val translation = "${chuck.fruit}-translated"
-        whenever(translator.translate(chuck.fruit)).thenReturn(translation)
+        whenever(translator.translate(chuck.fruit)).thenReturn(mapOf(chuck.fruit to translation))
 
         underTest.consume(chuck)
 

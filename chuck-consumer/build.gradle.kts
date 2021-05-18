@@ -16,6 +16,12 @@ repositories {
     mavenCentral()
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(15))
+    }
+}
+
 dependencies {
     implementation(kotlin("stdlib"))
 
@@ -24,6 +30,11 @@ dependencies {
 //    implementation("org.jetbrains.kotlin:kotlin-reflect")
 //    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.springframework.kafka:spring-kafka")
+    implementation(
+        group = "org.springframework.cloud",
+        name = "spring-cloud-starter-openfeign",
+        version = "3.0.2"
+    )
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.kafka:spring-kafka-test")
@@ -33,6 +44,24 @@ dependencies {
     testImplementation("org.awaitility:awaitility:4.0.3")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+
+    testImplementation(
+        group = "com.github.tomakehurst",
+        name = "wiremock",
+        version = "2.27.2"
+    )
+
+    testImplementation(
+        group = "org.springframework.cloud",
+        name = "spring-cloud-starter-contract-stub-runner",
+        version = "3.0.2"
+    )
+
+    testImplementation(
+        group = "com.marcinziolo",
+        name = "kotlin-wiremock",
+        version = "1.0.0"
+    )
 }
 
 sourceSets {
@@ -51,7 +80,7 @@ sourceSets {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "11"
+        jvmTarget = "15"
     }
 }
 
