@@ -1,6 +1,9 @@
 package com.dybek.chuckconsumer.infrastructure
 
+import com.dybek.chuckconsumer.infrastructure.rest.MockedRestInfrastructureConfiguration
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Import
 
+@Import(MockedRestInfrastructureConfiguration::class)
 @Configuration
 class InfrastructureConfiguration
