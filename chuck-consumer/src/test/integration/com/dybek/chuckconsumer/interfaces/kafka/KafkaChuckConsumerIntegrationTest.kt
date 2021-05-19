@@ -24,12 +24,12 @@ import org.springframework.test.context.ActiveProfiles
         KafkaTestHelperConfig::class
     ],
     properties = [
-        "topic.name=chuck",
+        "input.topic.name=chuck",
         "spring.kafka.properties.bootstrap.servers=\${spring.embedded.kafka.brokers}"
     ]
 )
 @EmbeddedKafka(
-    topics = ["\${topic.name}"],
+    topics = ["\${input.topic.name}"],
     partitions = 1
 )
 @DirtiesContext

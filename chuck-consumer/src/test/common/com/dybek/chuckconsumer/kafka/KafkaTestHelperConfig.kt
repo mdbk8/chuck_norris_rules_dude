@@ -9,7 +9,7 @@ class KafkaTestHelperConfig {
 
     @Bean
     fun kafkaProducerTestHelper(
-        @Value("\${topic.name}") topicName: String,
+        @Value("\${input.topic.name}") topicName: String,
         @Value("\${spring.embedded.kafka.brokers}") bootstrapServers: String
     ): KafkaProducerTestHelper =
         KafkaProducerTestHelper(

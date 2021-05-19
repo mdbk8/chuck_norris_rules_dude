@@ -8,7 +8,7 @@ import org.springframework.kafka.annotation.KafkaListener
 class KafkaChuckConsumer(private val chuckConsumer: ChuckConsumer) {
 
     @KafkaListener(
-        topics = ["\${topic.name}"],
+        topics = ["\${input.topic.name}"],
         containerFactory = "chuckKafkaListenerFactory"
     )
     fun consumeChuck(record: ConsumerRecord<String, Chuck>) {
