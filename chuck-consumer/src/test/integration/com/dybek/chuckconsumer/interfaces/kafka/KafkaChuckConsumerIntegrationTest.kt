@@ -39,14 +39,14 @@ class KafkaChuckConsumerIntegrationTest {
     private lateinit var chuckConsumerMock: ChuckConsumer
 
     @Autowired
-    private lateinit var kafkaProducerTestHelper: KafkaProducerTestHelper
+    private lateinit var kafkaConsumerTestHelper: KafkaProducerTestHelper
 
     @Test
     fun `consumes Chuck instance from Kafka topic`() {
         val key = 1.toString()
         val sentChuck = Chuck(fruit = "banana")
 
-        kafkaProducerTestHelper.sendMessageAndWaitToAppear(key, sentChuck)
+        kafkaConsumerTestHelper.sendMessageAndWaitToAppear(key, sentChuck)
 
         verify(chuckConsumerMock).consume(eq(sentChuck))
     }

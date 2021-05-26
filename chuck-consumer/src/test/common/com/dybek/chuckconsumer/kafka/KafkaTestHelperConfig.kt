@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean
 class KafkaTestHelperConfig {
 
     @Bean
-    fun kafkaProducerTestHelper(
+    fun kafkaConsumerTestHelper(
         @Value("\${input.topic.name}") topicName: String,
         @Value("\${spring.embedded.kafka.brokers}") bootstrapServers: String
     ): KafkaProducerTestHelper =
