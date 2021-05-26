@@ -1,4 +1,4 @@
-package com.dybek.chuckconsumer.infrastructure
+package com.dybek.chuckconsumer.infrastructure.rest
 
 import com.dybek.chuckconsumer.infrastructure.rest.RestInfrastructureConfiguration
 import com.dybek.chuckconsumer.infrastructure.rest.RestTranslatorClient
