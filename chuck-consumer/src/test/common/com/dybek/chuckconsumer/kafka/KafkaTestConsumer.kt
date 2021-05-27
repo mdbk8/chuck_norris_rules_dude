@@ -42,4 +42,6 @@ class KafkaTestConsumer(
 
         return partitionMessages
     }
+
+    fun close() = consumer.close()
 }

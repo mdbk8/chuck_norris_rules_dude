@@ -8,7 +8,7 @@ import java.time.Duration
 class KafkaProducerTestHelper(
     private val producer: KafkaTestProducer,
     private val consumer: KafkaTestConsumer
-) {
+): AutoCloseable {
 
     fun sendMessageAndWaitToAppear(key: String, value: Chuck) {
         producer.send(key, value)
@@ -37,5 +37,10 @@ class KafkaProducerTestHelper(
             }
 
         return expectedMessages
+    }
+
+    override fun close() {
+        producer.close()
+        consumer.close()
     }
 }
