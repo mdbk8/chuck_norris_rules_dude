@@ -45,8 +45,8 @@ class KafkaChuckConsumerIntegrationTest {
 
     @Test
     fun `consumes Chuck instance from Kafka topic`() {
-        val key = 1.toString()
-        val sentChuck = Chuck(fruit = "banana")
+        val key = 2.toString()
+        val sentChuck = Chuck(id = key, fruit = "banana")
 
         kafkaConsumerTestHelper.sendMessageAndWaitToAppear(key, sentChuck)
 

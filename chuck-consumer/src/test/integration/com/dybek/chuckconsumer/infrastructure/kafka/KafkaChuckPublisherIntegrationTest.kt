@@ -1,18 +1,15 @@
-package com.dybek.chuckconsumer.infrastructure.rest
+package com.dybek.chuckconsumer.infrastructure.kafka
 
 import com.dybek.chuckconsumer.domain.ChuckPublisher
 import com.dybek.chuckconsumer.domain.model.Chuck
-import com.dybek.chuckconsumer.infrastructure.kafka.KafkaChuckPublisherConfiguration
 import com.dybek.chuckconsumer.kafka.KafkaProducerTestHelper
 import com.dybek.chuckconsumer.kafka.KafkaTestHelperConfig
-import org.assertj.core.api.Assertions.assertThat
-import org.awaitility.Awaitility
+import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.kafka.test.context.EmbeddedKafka
 import org.springframework.test.annotation.DirtiesContext
-import java.time.Duration
 
 @EmbeddedKafka(
     topics = ["\${output.topic.name}"],
@@ -21,8 +18,6 @@ import java.time.Duration
 @SpringBootTest(
     properties = [
         "output.topic.name=chuck-translated",
-//        "output.topic.numOfPartitions=1",
-//        "output.topic.replicationFactor=1",
         "spring.kafka.properties.bootstrap.servers=\${spring.embedded.kafka.brokers}"
     ],
     webEnvironment = SpringBootTest.WebEnvironment.NONE,
@@ -50,6 +45,6 @@ class KafkaChuckPublisherIntegrationTest {
                 expectedNumberOfMessages = 1
             ).first()
 
-        assertThat(consumedMessage.value).isEqualTo(sentChuck)
+        Assertions.assertThat(consumedMessage.value).isEqualTo(sentChuck)
     }
 }
