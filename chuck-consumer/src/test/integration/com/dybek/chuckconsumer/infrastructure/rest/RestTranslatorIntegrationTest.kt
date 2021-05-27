@@ -1,7 +1,5 @@
 package com.dybek.chuckconsumer.infrastructure.rest
 
-import com.dybek.chuckconsumer.infrastructure.rest.RestInfrastructureConfiguration
-import com.dybek.chuckconsumer.infrastructure.rest.RestTranslatorClient
 import com.github.tomakehurst.wiremock.WireMockServer
 import com.marcinziolo.kotlin.wiremock.equalTo
 import com.marcinziolo.kotlin.wiremock.get

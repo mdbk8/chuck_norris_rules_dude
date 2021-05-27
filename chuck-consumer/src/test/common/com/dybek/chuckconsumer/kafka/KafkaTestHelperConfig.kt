@@ -17,4 +17,14 @@ class KafkaTestHelperConfig {
             KafkaConsumerFactory.createTestConsumer(topicName, bootstrapServers)
         )
 
+
+    @Bean
+    fun kafkaProducerTestHelper(
+        @Value("\${output.topic.name}") topicName: String,
+        @Value("\${spring.embedded.kafka.brokers}") bootstrapServers: String
+    ): KafkaProducerTestHelper =
+        KafkaProducerTestHelper(
+            KafkaProducerFactory.createTestProducer(topicName, bootstrapServers),
+            KafkaConsumerFactory.createTestConsumer(topicName, bootstrapServers)
+        )
 }

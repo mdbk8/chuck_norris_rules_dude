@@ -5,6 +5,7 @@ import com.dybek.chuckconsumer.domain.MockChuckConsumerTestConfig
 import com.dybek.chuckconsumer.domain.model.Chuck
 import com.dybek.chuckconsumer.kafka.KafkaProducerTestHelper
 import com.dybek.chuckconsumer.kafka.KafkaTestHelperConfig
+import org.awaitility.Awaitility.await
 import org.junit.jupiter.api.Test
 import org.mockito.kotlin.eq
 import org.mockito.kotlin.verify
@@ -14,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment
 import org.springframework.kafka.test.context.EmbeddedKafka
 import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.ActiveProfiles
+import java.time.Duration
 
 @ActiveProfiles("default")
 @SpringBootTest(
@@ -48,6 +50,7 @@ class KafkaChuckConsumerIntegrationTest {
 
         kafkaConsumerTestHelper.sendMessageAndWaitToAppear(key, sentChuck)
 
-        verify(chuckConsumerMock).consume(eq(sentChuck))
+        await().atMost(Duration.ofSeconds(30))
+            .untilAsserted { verify(chuckConsumerMock).consume(eq(sentChuck)) }
     }
 }

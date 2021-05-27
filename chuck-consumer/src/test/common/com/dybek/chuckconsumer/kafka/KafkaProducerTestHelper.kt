@@ -21,4 +21,21 @@ class KafkaProducerTestHelper(
                 val readMessages = consumer.consumeAllFromTheBeginning()
                 assertThat(readMessages).contains(KafkaMessage(key, value))
             }
+
+    fun consumeExpectedNumberOfMessagesFilteredByKey(
+        key: String,
+        expectedNumberOfMessages: Int
+    ): MutableList<KafkaMessage<Chuck>> {
+        val expectedMessages = mutableListOf<KafkaMessage<Chuck>>()
+
+        await().atMost(Duration.ofSeconds(30))
+            .untilAsserted {
+                expectedMessages.addAll(
+                    consumer.consumeAllFromTheBeginning().filter { it.key == key }
+                )
+                assertThat(expectedMessages).hasSize(expectedNumberOfMessages)
+            }
+
+        return expectedMessages
+    }
 }

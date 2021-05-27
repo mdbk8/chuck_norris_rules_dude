@@ -3,7 +3,13 @@ spring:
     consumer:
       auto-offset-reset: earliest
       group-id: chuck-consumer
+    producer:
+      acks: all
 
 input:
   topic:
     name: chuck
+
+output:
+  topic:
+    name: chuck-translated

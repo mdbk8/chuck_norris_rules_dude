@@ -35,7 +35,7 @@ class AppFunctionalTest {
     private lateinit var mockChuckPublisher: ChuckPublisher
 
     @Autowired
-    private lateinit var kafkaProducerTestHelper: KafkaProducerTestHelper
+    private lateinit var kafkaConsumerTestHelper: KafkaProducerTestHelper
 
     @Test
     fun `reads data from Kafka input topic, translates fruit name and publishes to output Kafka topic`() {
@@ -43,7 +43,7 @@ class AppFunctionalTest {
         val fruit = "banana"
         val sentChuck = Chuck(fruit = fruit)
 
-        kafkaProducerTestHelper.sendMessageAndWaitToAppear(key, sentChuck)
+        kafkaConsumerTestHelper.sendMessageAndWaitToAppear(key, sentChuck)
 
         verify(mockChuckPublisher).publish(sentChuck.copy(fruit = "$fruit-translated"))
     }
